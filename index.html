@@ -3,10 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Media Player</title>
   </head>
   <body>
-    <div>
+    <div class="player-container">
       <img
         class="song-image"
         src="resources/images/saluki-image.jpeg"
@@ -14,21 +15,31 @@
       />
       <p class="song-name">ВЫЛЕЧИМ</p>
       <p class="author-name">Saluki</p>
-      <input type="range" />
+      <input class="input-song-range" type="range" />
       <div class="buttons-container">
-        <button class="button-back">
-          <img src="resources/buttons/back-button.png" alt="button-back" />
-        </button>
-        <button class="button-play">
+        <button class="button-back buttons-style">
           <img
-            src="resources/buttons/pause-button.png"
+            class="button-back-image"
+            src="resources/buttons/arrow-button.png"
+            alt="button-back"
+          />
+        </button>
+        <button class="button-play buttons-style">
+          <img
+            class="button-play-image"
+            src="resources/buttons/play-button.png"
             alt="pause-play-button"
           />
         </button>
-        <button class="button-next">
-          <img src="resources/buttons/next-button.png" alt="next-button" />
+        <button class="button-next buttons-style">
+          <img
+            class="button-next-image"
+            src="resources/buttons/arrow-button.png"
+            alt="next-button"
+          />
         </button>
       </div>
     </div>
+    <script src="script.js"></script>
   </body>
 </html>
