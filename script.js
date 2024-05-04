@@ -16,18 +16,21 @@ const songsList = [
     songImage: "resources/images/saluki-image.jpeg",
     songName: "ВЫЛЕЧИМ",
     songAuthor: "Saluki",
+    color: "rgba(252, 252, 252, 0.178)",
   },
   {
     song: "resources/music/redbone-song.mp3",
     songImage: "resources/images/redbone-image.png",
     songName: "Redbone",
     songAuthor: "Childish Gambino",
+    color: "rgba(0, 132, 255, 0.178)",
   },
   {
     song: "resources/music/lady-song.mp3",
     songImage: "resources/images/lady-image.jpeg",
     songName: "Lady",
     songAuthor: "Modjo",
+    color: "rgba(255, 238, 0, 0.178)",
   },
 ];
 
@@ -46,6 +49,7 @@ function songChange() {
   songImage.src = songsList[id].songImage;
   songName.innerHTML = songsList[id].songName;
   authorName.innerHTML = songsList[id].songAuthor;
+  songImage.style = `box-shadow: 0 0 100px ${songsList[id].color}`;
   song.play();
   playButton.src = "resources/buttons/stop-button.png";
 }
