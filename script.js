@@ -2,20 +2,33 @@ const playButton = document.querySelector(".button-play-image");
 const backButton = document.querySelector(".button-back");
 const nextButton = document.querySelector(".button-next");
 const songImage = document.querySelector(".song-image");
+const songName = document.querySelector(".song-name");
+const authorName = document.querySelector(".author-name");
 
 const song = new Audio();
 song.src = "resources/music/saluki-song.mp3";
 
 let id = 0;
-const allSongs = [
-  "resources/music/saluki-song.mp3",
-  "resources/music/redbone-song.mp3",
-  "resources/music/lady-song.mp3",
-];
-const allSongsImages = [
-  "resources/images/saluki-image.jpeg",
-  "resources/images/redbone-image.png",
-  "resources/images/lady-image.jpeg",
+
+const songsList = [
+  {
+    song: "resources/music/saluki-song.mp3",
+    songImage: "resources/images/saluki-image.jpeg",
+    songName: "ВЫЛЕЧИМ",
+    songAuthor: "Saluki",
+  },
+  {
+    song: "resources/music/redbone-song.mp3",
+    songImage: "resources/images/redbone-image.png",
+    songName: "Redbone",
+    songAuthor: "Childish Gambino",
+  },
+  {
+    song: "resources/music/lady-song.mp3",
+    songImage: "resources/images/lady-image.jpeg",
+    songName: "Lady",
+    songAuthor: "Modjo",
+  },
 ];
 
 playButton.addEventListener("click", function () {
@@ -29,8 +42,10 @@ playButton.addEventListener("click", function () {
 });
 
 function songChange() {
-  song.src = allSongs[id];
-  songImage.src = allSongsImages[id];
+  song.src = songsList[id].song;
+  songImage.src = songsList[id].songImage;
+  songName.innerHTML = songsList[id].songName;
+  authorName.innerHTML = songsList[id].songAuthor;
   song.play();
   playButton.src = "resources/buttons/stop-button.png";
 }
