@@ -4,9 +4,46 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <title>Music</title>
+    <title>Media Player</title>
   </head>
   <body>
+    <div class="player-container">
+      <img
+        class="song-image"
+        src="resources/images/saluki-image.jpeg"
+        alt="song-image"
+      />
+      <p class="song-name">ВЫЛЕЧИМ</p>
+      <p class="author-name">Saluki</p>
+      <div class="time-container">
+        <p class="current-time">0:00</p>
+        <p class="duration-song">2:59</p>
+      </div>
+      <input class="input-song-range" value="0" type="range" />
+      <div class="buttons-container">
+        <button class="button-back buttons-style">
+          <img
+            class="button-back-image"
+            src="resources/buttons/arrow-button.png"
+            alt="button-back"
+          />
+        </button>
+        <button class="button-play buttons-style">
+          <img
+            class="button-play-image"
+            src="resources/buttons/play-button.png"
+            alt="pause-play-button"
+          />
+        </button>
+        <button class="button-next buttons-style">
+          <img
+            class="button-next-image"
+            src="resources/buttons/arrow-button.png"
+            alt="next-button"
+          />
+        </button>
+      </div>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
