@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 const playButton = document.querySelector(".button-play-image"), // добавляем нужные элементы html
   backButton = document.querySelector(".button-back"),
   nextButton = document.querySelector(".button-next"),
@@ -24,30 +23,6 @@ const songsList = [
     songAuthor: "Saluki", // исполнитель песни
     color: "rgba(252, 252, 252, 0.178)", // цвет подсветки обложки песни
     duration: "2:59", // длина трека
-=======
-const playButton = document.querySelector(".button-play-image");
-const backButton = document.querySelector(".button-back");
-const nextButton = document.querySelector(".button-next");
-const songImage = document.querySelector(".song-image");
-const songName = document.querySelector(".song-name");
-const authorName = document.querySelector(".author-name");
-const currentTimeNode = document.querySelector(".current-time");
-const durationSongNode = document.querySelector(".duration-song");
-
-const song = new Audio();
-song.src = "resources/music/saluki-song.mp3";
-
-let id = 0;
-
-const songsList = [
-  {
-    song: "resources/music/saluki-song.mp3",
-    songImage: "resources/images/saluki-image.jpeg",
-    songName: "ВЫЛЕЧИМ",
-    songAuthor: "Saluki",
-    color: "rgba(252, 252, 252, 0.178)",
-    duration: "2:59",
->>>>>>> main
   },
   {
     song: "resources/music/redbone-song.mp3",
@@ -68,7 +43,6 @@ const songsList = [
 ];
 
 playButton.addEventListener("click", function () {
-<<<<<<< HEAD
   // создаем функциб нажатия кнопки старт стоп
   if (song.paused === true) {
     // если песня остановлена
@@ -78,19 +52,10 @@ playButton.addEventListener("click", function () {
     // иначе
     song.pause(); // остановить песню
     playButton.src = "resources/buttons/play-button.png"; // поменять картинку кнопки обратно
-=======
-  if (song.paused === true) {
-    song.play();
-    playButton.src = "resources/buttons/stop-button.png";
-  } else {
-    song.pause();
-    playButton.src = "resources/buttons/play-button.png";
->>>>>>> main
   }
 });
 
 function songChange() {
-<<<<<<< HEAD
   // функция переключения песни
   song.src = songsList[id].song; // меняем путь к песне через айди и список с объектами песен
   songImage.src = songsList[id].songImage; // меняем путь к обложке
@@ -166,33 +131,3 @@ function songChangeTime(e) {
 song.addEventListener("timeupdate", songProgress); // ивент обновления времени и прогресса
 
 progressBarNode.addEventListener("click", songChangeTime); // ивент перемотки
-=======
-  song.src = songsList[id].song;
-  songImage.src = songsList[id].songImage;
-  songName.innerHTML = songsList[id].songName;
-  authorName.innerHTML = songsList[id].songAuthor;
-  songImage.style = `box-shadow: 0 0 100px ${songsList[id].color}`;
-  durationSongNode.innerHTML = songsList[id].duration;
-  song.play();
-  playButton.src = "resources/buttons/stop-button.png";
-}
-
-nextButton.addEventListener("click", function () {
-  id++;
-  songChange();
-});
-
-backButton.addEventListener("click", function () {
-  id--;
-  songChange();
-});
-
-function formatingTime(time) {
-  let s = Math.floor(time % 60);
-  return Math.floor(time / 60) + ":" + (s < 10 ? "0" + s : s);
-}
-
-song.ontimeupdate = function () {
-  currentTimeNode.innerHTML = formatingTime(song.currentTime);
-};
->>>>>>> main
