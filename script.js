@@ -4,6 +4,8 @@ const nextButton = document.querySelector(".button-next");
 const songImage = document.querySelector(".song-image");
 const songName = document.querySelector(".song-name");
 const authorName = document.querySelector(".author-name");
+const currentTimeNode = document.querySelector(".current-time");
+const durationSongNode = document.querySelector(".duration-song");
 
 const song = new Audio();
 song.src = "resources/music/saluki-song.mp3";
@@ -17,6 +19,7 @@ const songsList = [
     songName: "ВЫЛЕЧИМ",
     songAuthor: "Saluki",
     color: "rgba(252, 252, 252, 0.178)",
+    duration: "2:59",
   },
   {
     song: "resources/music/redbone-song.mp3",
@@ -24,6 +27,7 @@ const songsList = [
     songName: "Redbone",
     songAuthor: "Childish Gambino",
     color: "rgba(0, 132, 255, 0.178)",
+    duration: "5:27",
   },
   {
     song: "resources/music/lady-song.mp3",
@@ -31,6 +35,7 @@ const songsList = [
     songName: "Lady",
     songAuthor: "Modjo",
     color: "rgba(255, 238, 0, 0.178)",
+    duration: "4:41",
   },
 ];
 
@@ -50,6 +55,7 @@ function songChange() {
   songName.innerHTML = songsList[id].songName;
   authorName.innerHTML = songsList[id].songAuthor;
   songImage.style = `box-shadow: 0 0 100px ${songsList[id].color}`;
+  durationSongNode.innerHTML = songsList[id].duration;
   song.play();
   playButton.src = "resources/buttons/stop-button.png";
 }
@@ -63,3 +69,12 @@ backButton.addEventListener("click", function () {
   id--;
   songChange();
 });
+
+function formatingTime(time) {
+  let s = Math.floor(time % 60);
+  return Math.floor(time / 60) + ":" + (s < 10 ? "0" + s : s);
+}
+
+song.ontimeupdate = function () {
+  currentTimeNode.innerHTML = formatingTime(song.currentTime);
+};

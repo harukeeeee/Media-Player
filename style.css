@@ -77,3 +77,20 @@
   height: 60px;
   transform: rotate(180deg);
 }
+
+.time-container {
+  margin: 0 0 -25px 0;
+  display: flex;
+  gap: 330px;
+  background-color: transparent;
+}
+
+.current-time {
+  color: white;
+  background-color: transparent;
+}
+
+.duration-song {
+  color: white;
+  background-color: transparent;
+}
